@@ -9,7 +9,8 @@ const token = JSON.parse(localStorage.getItem('token'))?.data?.token || 'eyJhbGc
 
 export function categoriesAction() {
   return async (dispatch) => {
-    const url = 'http://localhost:5000/categories/list-category';
+    // const url = 'http://localhost:5000/categories/list-category';
+    const url = process.env.REACT_APP_BACKEND+`/categories/list-category`;
     const headers = {
       Authorization: "Bearer " + token,
     };
@@ -34,7 +35,8 @@ export function categoriesAction() {
 
 export function AddcategoriesAction(categoryName,categorySequence,image) {
   return async (dispatch) => {
-    const url = 'http://localhost:5000/categories/add-category';
+    // const url = 'http://localhost:5000/categories/add-category';
+    const url = process.env.REACT_APP_BACKEND+`/categories/add-category`;
     // let data11 = {
     //   category_name: categoryName,
     //   sequence_no: categorySequence,
@@ -72,7 +74,8 @@ export const addCategoryDataOfReset = () => ({
 
 export function deletecategoriesAction(id) {
   return async (dispatch) => {
-    const url = `http://localhost:5000/categories/delete-category/${id}`;
+    // const url = `http://localhost:5000/categories/delete-category/${id}`;
+    const url = process.env.REACT_APP_BACKEND+`/categories/delete-category/${id}`;
     const headers = {
       Authorization: "Bearer " + token,
     };

@@ -2,7 +2,8 @@ import axios from 'axios';
 
 export function loginAction(email, password) {
   return async (dispatch) => {
-    const url = 'http://localhost:5000/auth/login';
+    // const url = 'http://localhost:5000/auth/login';
+    const url = process.env.REACT_APP_BACKEND+`/auth/login`;
 
     dispatch({ type: 'LOGIN_REQUESTED' });
 
