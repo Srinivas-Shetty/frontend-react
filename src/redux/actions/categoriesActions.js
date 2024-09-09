@@ -42,9 +42,12 @@ export function AddcategoriesAction(categoryName,categorySequence,image) {
     //   image: image
     // }
     let formdata =new FormData()
-    formdata.set('category_name', categoryName)
-    formdata.set('sequence_no', categorySequence)
-    formdata.set('image', image)
+    // formdata.set('category_name', categoryName)
+    // formdata.set('sequence_no', categorySequence)
+    // formdata.set('image', image)
+    formdata.append('category_name', categoryName);
+formdata.append('sequence_no', categorySequence);
+formdata.append('image', image);
     const headers = {
       Authorization: "Bearer " + token,
       'Content-Type': 'multipart/form-data', 
