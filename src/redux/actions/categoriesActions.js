@@ -9,7 +9,6 @@ const token = JSON.parse(localStorage.getItem('token'))?.data?.token || 'eyJhbGc
 
 export function categoriesAction() {
   return async (dispatch) => {
-    // const url = 'http://localhost:5000/categories/list-category';
     const url = process.env.REACT_APP_BACKEND+`/categories/list-category`;
     const headers = {
       Authorization: "Bearer " + token,
@@ -48,6 +47,7 @@ export function AddcategoriesAction(categoryName,categorySequence,image) {
     formdata.set('image', image)
     const headers = {
       Authorization: "Bearer " + token,
+      'Content-Type': 'multipart/form-data', 
     };
     dispatch({ type: 'CATEGORY_ADD_REQUESTED' });
 
